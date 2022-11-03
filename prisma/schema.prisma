@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CartModel {
+  id               Int                @id @default(autoincrement())
+  userId           Int                @unique
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime
+  UserModel        UserModel          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  CartProductModel CartProductModel[]
+}
+
+model CartProductModel {
+  id           Int          @id @default(autoincrement())
+  cartId       Int
+  productId    Int          @unique
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime
+  productCount Int
+  CartModel    CartModel    @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  ProductModel ProductModel @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model ContactModel {
+  id        Int       @id @default(autoincrement())
+  address   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+  userId    Int       @unique
+  UserModel UserModel @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ProductModel {
+  id               Int               @id @default(autoincrement())
+  title            String            @unique
+  description      String
+  image            String
+  size             String
+  hasHelium        Boolean           @default(false)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime
+  price            Int
+  CartProductModel CartProductModel?
+}
+
+model UserModel {
+  id           Int           @id @unique
+  name         String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime
+  CartModel    CartModel?
+  ContactModel ContactModel?
+}
