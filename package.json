@@ -13,10 +13,10 @@
     "type": "git",
     "url": "https://github.com/kicheese/bot-api-database"
   },
-  "author": "Sergey Kichigin",
+  "author": "kicheese",
   "license": "ISC",
   "publishConfig": {
-    "@kicheese:registry": "https://npm.pkg.github.com"
+    "@kicheese3000:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@prisma/client": "4.5.0"
