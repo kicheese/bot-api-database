@@ -19,6 +19,7 @@
     "@prisma/client": "4.5.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "dotenv": "^16.0.3",
     "prisma": "4.5.0",
     "typescript": "^4.8.4"
