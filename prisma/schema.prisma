@@ -11,7 +11,7 @@ model CartModel {
   id               Int                @id @default(autoincrement())
   userId           Int                @unique
   createdAt        DateTime           @default(now())
-  updatedAt        DateTime
+  updatedAt        DateTime           @updatedAt
   UserModel        UserModel          @relation(fields: [userId], references: [id], onDelete: Cascade)
   CartProductModel CartProductModel[]
 }
@@ -21,7 +21,7 @@ model CartProductModel {
   cartId       Int
   productId    Int          @unique
   createdAt    DateTime     @default(now())
-  updatedAt    DateTime
+  updatedAt    DateTime     @updatedAt
   productCount Int
   CartModel    CartModel    @relation(fields: [cartId], references: [id], onDelete: Cascade)
   ProductModel ProductModel @relation(fields: [productId], references: [id], onDelete: Cascade)
@@ -31,7 +31,7 @@ model ContactModel {
   id        Int       @id @default(autoincrement())
   address   String
   createdAt DateTime  @default(now())
-  updatedAt DateTime
+  updatedAt DateTime  @updatedAt
   userId    Int       @unique
   UserModel UserModel @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -44,7 +44,7 @@ model ProductModel {
   size             String
   hasHelium        Boolean           @default(false)
   createdAt        DateTime          @default(now())
-  updatedAt        DateTime
+  updatedAt        DateTime          @updatedAt
   price            Int
   CartProductModel CartProductModel?
 }
@@ -53,7 +53,7 @@ model UserModel {
   id           Int           @id @unique
   name         String
   createdAt    DateTime      @default(now())
-  updatedAt    DateTime
+  updatedAt    DateTime      @updatedAt
   CartModel    CartModel?
   ContactModel ContactModel?
 }

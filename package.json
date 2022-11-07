@@ -1,6 +1,6 @@
 {
-  "name": "@kicheese/bot-api-database",
-  "version": "1.0.0",
+  "name": "bot-api-database",
+  "version": "1.0.1",
   "description": "prisma client for bot-api",
   "main": "index.js",
   "scripts": {
@@ -15,9 +15,6 @@
   },
   "author": "kicheese",
   "license": "ISC",
-  "publishConfig": {
-    "@kicheese3000:registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "@prisma/client": "4.5.0"
   },
