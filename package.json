@@ -1,6 +1,6 @@
 {
   "name": "bot-api-database",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "prisma client for bot-api",
   "main": "index.js",
   "scripts": {
